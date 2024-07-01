@@ -13,8 +13,6 @@ const DatasetsComp = () => {
   const [on, setOn] = useState<boolean>(false);
 
   const { data: usersData, isLoading } = useQuery('users', getUsers);
-
-  console.log('this is usersData', isLoading);
   return (
     <Box>
       <Box

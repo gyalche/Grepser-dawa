@@ -80,7 +80,7 @@ export default function Layout({ children }: any) {
   const [open, setOpen] = React.useState(true);
 
   const location = useLocation();
-  console.log('location', location);
+
   const navigation = useNavigate();
   const handleDrawerOpen = () => {
     setOpen(true);

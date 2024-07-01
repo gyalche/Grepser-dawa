@@ -5,6 +5,6 @@ export const getUsers = async () => {
     const res = await API.get('/users');
     return res.data;
   } catch (error: any) {
-    console.log(error.message);
+    return error.message;
   }
 };
