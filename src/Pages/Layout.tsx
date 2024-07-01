@@ -65,6 +65,7 @@ const AppBar = styled(MuiAppBar, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
+  backgroundColor: '#ffffff',
 }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
