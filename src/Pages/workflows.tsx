@@ -1,9 +1,6 @@
-import React from 'react'
 import Layout from './Layout'
 
-type Props = {}
-
-const WorkFlows = (props: Props) => {
+const WorkFlows = () => {
   return (
     <Layout>
         <h1>WORK FLOWS</h1>

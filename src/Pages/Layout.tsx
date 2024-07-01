@@ -1,3 +1,4 @@
+import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,17 +13,16 @@ import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import * as React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import notification from '../assets/Notification.png';
+import profile from '../assets/Profile.png';
 import Arrow from '../assets/arrow.png';
 import credit from '../assets/credit.png';
 import dataset from '../assets/datasets.png';
-import workflow from '../assets/workflows.png';
-import ques from '../assets/ques.png';
-import navLeft from '../assets/navLeft.png';
 import infinity from '../assets/infinity.png';
-import notification from '../assets/Notification.png';
-import profile from '../assets/Profile.png'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import navLeft from '../assets/navLeft.png';
+import ques from '../assets/ques.png';
+import workflow from '../assets/workflows.png';
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop:any) => prop !== 'open' })<{
@@ -76,7 +76,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function Layout({children}:any) {
   const [open, setOpen] = React.useState(true);
-  const [myIndex, setMyIndex]=React.useState(0);
 
   const location=useLocation();
   console.log("location", location)
@@ -91,7 +90,6 @@ export default function Layout({children}:any) {
   };
 
   const NavigationClick=(index:any)=>{
-    setMyIndex(index);
     {index===0 && navigation('/')}
     {index===1 && navigation('/workflow')}
     {index===2 && navigation('/credit')}
@@ -192,9 +190,7 @@ export default function Layout({children}:any) {
                  color: location.pathname===data.route? 'blue' : 'inherit',
             }}
                 onClick={()=>NavigationClick(index)}
-                // onClick={()=>{
-                //    setMyIndex(index)
-                // }}
+
             >
                 <img src={data?.icon} />
                 
@@ -220,7 +216,7 @@ export default function Layout({children}:any) {
       
       </Drawer>
 
-      <Main open={open} sx={{backgroundColor:'#F4F5FC', height:'100vh'}}>
+      <Main open={open} sx={{backgroundColor:'#F4F5FC', minHeight:'100vh'}}>
         <DrawerHeader />
         {children}
       </Main>

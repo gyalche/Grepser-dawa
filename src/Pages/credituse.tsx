@@ -1,13 +1,11 @@
-import React from 'react'
 import Layout from './Layout'
 
-type Props = {}
 
-const CreditUsage = (props: Props) => {
+const CreditUsage = () => {
   return (
     <Layout>
 
-        <div>CreditUsage</div>
+        <h1>CreditUsage</h1>
     </Layout>
   )
 }

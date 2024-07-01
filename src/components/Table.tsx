@@ -1,32 +1,30 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Box, Typography } from '@mui/material';
-import Loading from './Loading';
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { Box, Typography } from "@mui/material";
+import Loading from "./Loading";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: '#DCE2F0',
-    color: 'black',
+    backgroundColor: "#DCE2F0",
+    color: "black",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
   },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    // backgroundColor: theme.palette.action.hover,
-    backgroundColor:'#F6F5FB'
+const StyledTableRow = styled(TableRow)(() => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: "#F6F5FB",
   },
   // hide last border
-  '&:last-child td, &:last-child th': {
+  "&:last-child td, &:last-child th": {
     border: 0,
   },
 }));
@@ -36,53 +34,66 @@ function createData(
   phone: string,
   email: string,
   website: string,
-  address: string,
+  address: string
 ) {
   return { name, phone, email, website, address };
 }
 
-
-interface tableTypes{
-    heading:Array<string>;
-    headIcon?:any;
-    data:any;
-    loading?:boolean
+interface tableTypes {
+  heading: Array<string>;
+  headIcon?: any;
+  data: any;
+  loading?: boolean;
 }
-export default function MyTable({heading, headIcon, data, loading}:tableTypes) {
-
-    console.log("this is my data", data)
-
-    const rows=data?.map((data:any)=>createData(data?.name, data?.phone, data?.email, data?.website, data?.address.street))
+export default function MyTable({
+  heading,
+  headIcon,
+  data,
+  loading,
+}: tableTypes) {
+  const rows = data?.map((data: any) =>
+    createData(
+      data?.name,
+      data?.phone,
+      data?.email,
+      data?.website,
+      data?.address.street
+    )
+  );
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+    <TableContainer sx={{ overflow: "auto" }} component={Paper}>
+      <Table aria-label="customized table">
         <TableHead>
           <TableRow>
-            {heading?.map((data)=>(
-                  <StyledTableCell align="right" >
-                    <Box className='table_head'>
-                        <Box sx={{display:'flex', alignItems:'center'}}>
+            {heading?.map((data) => (
+              <StyledTableCell align="right" key={data}>
+                <Box className="table_head">
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
                     <img src={headIcon[0]} />
-                    <Typography sx={{fontWeight:700, fontSize:'14px', lineHeight:'19.12px'}}>
-                        {data}
+                    <Typography
+                      sx={{
+                        fontWeight: 700,
+                        fontSize: "14px",
+                        lineHeight: "19.12px",
+                      }}
+                    >
+                      {data}
                     </Typography>
-
-                        </Box>
-                        <img src={headIcon[1]} />
-                    </Box>
-                    </StyledTableCell>
+                  </Box>
+                  <img src={headIcon[1]} />
+                </Box>
+              </StyledTableCell>
             ))}
           </TableRow>
         </TableHead>
-        {loading ? (
-            
-                <Loading  totalLoading={[1,2,3,4]}/>
-        
-        ):(
 
-            <TableBody>
-            {rows?.map((row:any) => (
-                <StyledTableRow className='table_body' key={row.name}>
+        <TableBody sx={{ width: "100%" }}>
+          {loading ? (
+            <Loading totalLoading={[1, 2, 3, 4]} />
+          ) : (
+            <>
+              {rows?.map((row: any) => (
+                <StyledTableRow className="table_body" key={row.name}>
                   <StyledTableCell component="th" scope="row">
                     {row.name}
                   </StyledTableCell>
@@ -100,8 +111,9 @@ export default function MyTable({heading, headIcon, data, loading}:tableTypes) {
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
-            </TableBody>
-        )}
+            </>
+          )}
+        </TableBody>
       </Table>
     </TableContainer>
   );

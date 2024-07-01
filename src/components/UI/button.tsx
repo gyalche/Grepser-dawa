@@ -1,5 +1,4 @@
 import { Box, Button } from '@mui/material';
-import React from 'react'
 
 interface buttons{
     text?:string;
@@ -14,7 +13,8 @@ const MyButton = ({text,variant, icon, styles}:buttons) => {
     <Box sx={{display:'inline-block'}}>
         <Button variant={variant} sx={styles}>
            <img src={icon}/>
-            {text}</Button>
+            {text} 
+        </Button>
     </Box>
   )
 }
