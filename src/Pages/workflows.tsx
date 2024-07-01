@@ -1,11 +1,11 @@
-import Layout from './Layout'
+import Layout from './Layout';
 
 const WorkFlows = () => {
   return (
     <Layout>
-        <h1>WORK FLOWS</h1>
+      <h1>WORK FLOWS</h1>
     </Layout>
-  )
-}
+  );
+};
 
-export default WorkFlows
+export default WorkFlows;

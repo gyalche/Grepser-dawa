@@ -1,13 +1,11 @@
-import Layout from './Layout'
-
+import Layout from './Layout';
 
 const CreditUsage = () => {
   return (
     <Layout>
-
-        <h1>CreditUsage</h1>
+      <h1>CreditUsage</h1>
     </Layout>
-  )
-}
+  );
+};
 
-export default CreditUsage
+export default CreditUsage;

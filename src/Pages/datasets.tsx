@@ -1,12 +1,12 @@
-import Layout from './Layout'
-import DatasetsComp from '../components/DatasetsComp'
+import Layout from './Layout';
+import DatasetsComp from '../components/DatasetsComp';
 
 const DataSets = () => {
   return (
     <Layout>
-        <DatasetsComp />
+      <DatasetsComp />
     </Layout>
-  )
-}
+  );
+};
 
-export default DataSets
+export default DataSets;

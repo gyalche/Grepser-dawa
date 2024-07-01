@@ -7,8 +7,8 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 const theme = createTheme({
   typography: {
-    fontFamily: ['Manrope'].join(',')
-  }
+    fontFamily: ['Manrope'].join(','),
+  },
 });
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')!).render(

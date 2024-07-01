@@ -52,12 +52,11 @@ body {
   align-items: center;
   justify-content: flex-start;
 }
-.dataset_head{
-  display:flex;
-  width:100%;
+.dataset_head {
+  display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap:2px;
- 
+  gap: 2px;
 }

@@ -1,10 +1,10 @@
-import { API } from "../axios"
+import { API } from '../axios';
 
-export const getUsers=async()=>{
-    try {
-        const res=await API.get('/users');
-        return res.data;
-    } catch (error:any) {
-        console.log(error.message)
-    }
-}
+export const getUsers = async () => {
+  try {
+    const res = await API.get('/users');
+    return res.data;
+  } catch (error: any) {
+    console.log(error.message);
+  }
+};
