@@ -13,13 +13,12 @@ body {
   ); /* iOS specific */
   height: calc(
     100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
-  ); /* Android specific */
-  /* fallback for browsers that do not support safe-area-inset */
-  height: 100vh; /* Fallback */
-  overflow-y: auto; /* Enables scrolling if content exceeds height */
+  );
+  height: 100vh; 
+  overflow-y: auto;
 }
 .css-hyum1k-MuiToolbar-root {
-  background-color: white;
+  background-color: white !important;
 }
 .navbar {
   width: 100%;
